@@ -7,14 +7,14 @@ import './App.css';
 const projectID = '9d359c23-34b9-472f-b618-c369236c1324';
 
 const App = () => {
-  //if (!localStorage.getItem('username')) return <LoginForm />;
+  if (!localStorage.getItem('username')) return <LoginForm />;
 
   return (
     <ChatEngine
       height="100vh"
       projectID={projectID}
-      userName='talex'//{localStorage.getItem('username')}
-      userSecret='talex'//{localStorage.getItem('password')}
+      userName={localStorage.getItem('username')}
+      userSecret={localStorage.getItem('password')}
       renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
       onNewMessage={() => new Audio('https://chat-engine-assets.s3.amazonaws.com/click.mp3').play()}
     />
